@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int reverse(int x) {
+      bool flag = false;
+ if(x < 0){
+ flag = true;
+ x = -x; }
+ int prev_rev = 0, rev = 0;
+ while(x != 0){
+ int curr_digit = x%10;
+ 
+ rev = rev*10 + curr_digit;
+ 
+ if((rev - curr_digit)/10 != prev_rev){
+ return 0;
+ }
+ 
+ prev_rev = rev;
+ x = x/10;
+ }
+ if(flag){
+ return -rev;
+ }
+ else{
+ return rev;
+ }
+  
+    }
+};
